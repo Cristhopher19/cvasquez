@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition>
+
+        <p:dialog id="DialActualizar"
+                  appendTo="@(body)"
+                  closeOnEscape="true"
+                  widgetVar="Actualizar"
+                  modal="true"
+                  showEffect=""
+                  >
+            <h:form id="updateform" >
+                <h:panelGrid id="panelGridEdit" columns="2" cellpadding="5" > 
+
+                    <p:outputLabel value="DNI" for="DniCli"/>
+                    <p:inputText id="DniCli" value="#{clientesCrontroller.clientesM.dni_Cli}" required="true"/>
+
+                    <p:outputLabel value="Nombre" for="NomCli"/>
+                    <p:inputText id="NomCli" value="#{clientesCrontroller.clientesM.nom_Cli}" required="true"/>
+
+                    <p:outputLabel value="Apellido" for="ApeCli"/>
+                    <p:inputText id="ApeCli" value="#{clientesCrontroller.clientesM.ape_Cli}" required="true"/>
+
+                    <p:outputLabel value="Ubigeo" for="Ubigeo"/>
+                    <p:inputText id="Ubigeo" value="#{clientesCrontroller.clientesM.ubigeo}" required="true"/>
+
+                    <p:outputLabel value="Direccion" for="DirCli"/>
+                    <p:inputText id="DirCli" value="#{clientesCrontroller.clientesM.dir_Cli}" required="true"/>
+
+
+
+                    <p:commandButton id="btnUpdate" value="Actualizar" actionListener="#{clientesCrontroller.actualizar()}" 
+                                     oncomplete="handleLoginRequest(xhr, status,args,'Actualizar')"
+                                     update="updateform :form "/>
+                </h:panelGrid>
+            </h:form>
+
+        </p:dialog>
+
+
+    </ui:composition>
+
+
+</html>
+
